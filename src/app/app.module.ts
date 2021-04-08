@@ -12,6 +12,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
     FormsModule, 
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ), BrowserAnimationsModule,MatInputModule,MatSelectModule,
+    MatCardModule
     
   ],
   providers: [],

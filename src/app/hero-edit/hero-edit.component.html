@@ -1,34 +1,41 @@
 <div *ngIf="hero">
 
-    <h2>{{hero.name | uppercase}}</h2>
-    <div><span>id:</span>{{hero.id}}</div>
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero Name"/>
-    </div>
+  <mat-card> 
+    <h2>{{hero.name|uppercase}} - ID: {{hero.id}}</h2>
+    
     
 
-    <div>
-      <label for="hero-description">Hero Description: </label>
-      <input id="hero-description" [(ngModel)]="hero.description" placeholder="Hero Description"/>
-    </div>
-    
+      <mat-form-field class="example-full-width">
+        <mat-label>Hero name: </mat-label>
+        <input matInput placeholder="Hero name" [(ngModel)]="hero.name">
+      </mat-form-field>
+    <br>
 
-    <div>
-      <label for="hero-image-Url">Hero image url: </label>
-      <input id="hero-image-url" [(ngModel)]="hero.imageUrl" placeholder="Hero Image"/>
-    </div>
-    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero Description: </mat-label>
+      <input matInput placeholder="Hero description" [(ngModel)]="hero.description">
+    </mat-form-field>
+  
+    <br>
 
-    <div>
-      <select [(ngModel)]="hero.universe">
-        <option *ngFor="let universe of heroUniverses" [value]="universe">
-          {{universe | uppercase}}
-        </option>
-      </select>
-    </div>
-    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero imageUrl: </mat-label>
+      <input matInput placeholder="Hero Image" [(ngModel)]="hero.imageUrl">
+    </mat-form-field>
 
-    <button (click)="goBack()">go back</button>
-    <button (click)="save()">save</button>
+   <br>
+
+   <mat-form-field  appearance="fill" class="example-full-width">
+    <mat-label>Universe</mat-label>
+    <mat-select [(ngModel)]="hero.universe">
+    <mat-option *ngFor="let universe of heroUniverses" [value]="universe">{{universe|uppercase}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+     
+    <div class="button-container">
+      <button class="goBack" (click)="goBack()">go back</button>
+      <button class="save" (click)="save()">save</button>
+    </div>
+
+  </mat-card>
 </div>

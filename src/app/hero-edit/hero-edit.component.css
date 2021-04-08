@@ -5,15 +5,35 @@ div{
     padding:12px;
 }
 
-button{
-    
-    font-weight: bold;
-    font-size: 18px;
-    padding:15px;
-    margin:10px;
-    border-style: none;
+.button-container{
+    display: flex;
+    justify-content: center;
 }
 
+button{
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 18px;
+    padding:15px;
+    border-style: none;
+    border-bottom-style: solid;
+    margin:5px;
+}
+
+
+
+
 button:hover{
-   background-color: darkcyan;
+   background-color: purple;
+  
+  
+}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+.example-full-width{
+    width:100%;
 }
