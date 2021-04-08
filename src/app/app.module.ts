@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import { HeroNewComponent } from './hero-new/hero-new.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import {MatCardModule} from '@angular/material/card';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroEditComponent
+    HeroEditComponent,
+    HeroNewComponent,
+    HeroFormComponent
     
   ],
 
@@ -37,7 +43,7 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ), BrowserAnimationsModule,MatInputModule,MatSelectModule,
-    MatCardModule
+    MatCardModule,MatButtonModule,MatIconModule
     
   ],
   providers: [],
