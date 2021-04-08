@@ -1,0 +1,19 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+div{
+    padding:12px;
+}
+
+button{
+    
+    font-weight: bold;
+    font-size: 18px;
+    padding:15px;
+    margin:10px;
+    border-style: none;
+}
+
+button:hover{
+   background-color: darkcyan;
+}

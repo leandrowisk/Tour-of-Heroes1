@@ -1,5 +1,14 @@
-export class Hero{
+export enum HeroUniverse{
+    DC='dc',
+    MARVEL='marvel'
 
-    id!:number;
-    name!:string;
 }
+export interface Hero{
+
+  id: number;
+  name: string;
+  imageUrl: string;
+  universe: HeroUniverse;
+  description: string; 
+}
+
