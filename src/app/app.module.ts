@@ -8,8 +8,8 @@ import { AppRoutingModule} from './app-routing.module';
 import {MessagesComponent} from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+///import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+///import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,12 +37,12 @@ import {MatIconModule} from '@angular/material/icon';
 
   imports: [
     BrowserModule,
-    HttpClientModule,
+    ///HttpClientModule,
     AppRoutingModule,
-    FormsModule, 
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ), BrowserAnimationsModule,MatInputModule,MatSelectModule,
+    FormsModule, HttpClientModule,
+    ///HttpClientInMemoryWebApiModule.forRoot(
+      ///InMemoryDataService, { dataEncapsulation: false }
+   BrowserAnimationsModule,MatInputModule,MatSelectModule,
     MatCardModule,MatButtonModule,MatIconModule
     
   ],
