@@ -1,34 +1,34 @@
 <div *ngIf="hero">
 
     <mat-card> 
-      <h2>{{hero.name|uppercase}} - ID: {{hero.id}}</h2>
+      <h2>{{hero.name}} - ID: {{hero.id}}</h2>
       
       
   
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width"  [formGroup]= "formulario">
           <mat-label>Hero name: </mat-label>
-          <input matInput placeholder="Hero name" [(ngModel)]="hero.name">
+          <input matInput placeholder="Hero name" formControlName= "name" >
         </mat-form-field>
       <br>
   
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" [formGroup]= "formulario">
         <mat-label>Hero Description: </mat-label>
-        <input matInput placeholder="Hero description" [(ngModel)]="hero.description">
+        <input matInput placeholder="Hero description"  formControlName="description">
       </mat-form-field>
     
       <br>
   
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" [formGroup]= "formulario">
         <mat-label>Hero imageUrl: </mat-label>
-        <input matInput placeholder="Hero Image" [(ngModel)]="hero.imageUrl">
+        <input matInput placeholder="Hero Image" formControlName="imageUrl"> 
       </mat-form-field>
   
      <br>
   
-     <mat-form-field  appearance="fill" class="example-full-width">
+     <mat-form-field  appearance="fill" class="example-full-width" [formGroup]= "formulario">
       <mat-label>Universe</mat-label>
-      <mat-select [(ngModel)]="hero.universe">
-      <mat-option *ngFor="let universe of heroUniverses" [value]="universe">{{universe|uppercase}}</mat-option>
+      <mat-select>
+      <mat-option *ngFor="let universe of heroUniverses" [value]="universe" formControlName="universe">{{universe|uppercase}}</mat-option>
       </mat-select>
       </mat-form-field>
        

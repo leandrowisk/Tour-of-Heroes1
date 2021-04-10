@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import{Location} from '@angular/common';
+import {Location} from '@angular/common';
 import { Hero } from '../hero';
 
 @
@@ -12,20 +12,20 @@ Component({
 })
 export class HeroNewComponent implements OnInit {
 
-  //No comopnente hero-new iremos iniciar o heros com um json em branco
-  hero:Hero= {} as Hero;
- 
+  // No comopnente hero-new iremos iniciar o heros com um json em branco
+  hero: Hero = {} as Hero;
 
-  constructor(private location:Location ) { }
+
+  constructor(private location: Location ) { }
 
   ngOnInit(): void {
   }
 
-  onGoBack(){
+  onGoBack(): void {
 
     this.location.back();
   }
-  save(){
+  save(): void {
     this.location.back();
   }
 }

@@ -1,6 +1,10 @@
-import { Component,EventEmitter,Input, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, Output,OnInit} from '@angular/core';
 import { Hero, HeroUniverse } from '../hero';
 import { HeroService } from '../hero.service';
+
+
+
 
 
 @Component({
@@ -10,20 +14,24 @@ import { HeroService } from '../hero.service';
 })
 export class HeroFormComponent {
 
-  @Input() hero!:Hero;
-  @Output() heroSaved:EventEmitter<void>=new EventEmitter<void>();
-  @Output() goBack:EventEmitter<void>= new EventEmitter<void>();
+  @Input() hero: Hero;
+  @Output() heroSaved: EventEmitter<void> = new EventEmitter<void>();
+  @Output() goBack: EventEmitter<void> = new EventEmitter<void>();
 
-  heroUniverses:Array<HeroUniverse>=[HeroUniverse.DC,HeroUniverse.MARVEL];
 
-  constructor(private heroService:HeroService) { }
-  onGoBack():void{
+  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL];
+
+  formulario: FormGroup;
+  
+
+  constructor(private heroService: HeroService,private formBuilder: FormBuilder) { }
+  onGoBack(): void{
     this.goBack.emit();
   }
 
   save(): void {
 
-    if(this.hero.id){
+    if (this.hero.id){
     this.heroService.updateHero(this.hero)
     .subscribe(() => this.heroSaved.emit());
   }else{
@@ -32,7 +40,13 @@ export class HeroFormComponent {
   }
 }
 
-  
+    OnInit(){
 
-  
+        this.formulario = this.formBuilder.group({
+        name: [this.hero.name, Validators.required, Validators.nullValidator],
+        description: [this.hero.description],
+        imageUrl: [this.hero.imageUrl,Validators],
+        universe: [this.hero.universe]
+  });
+    }
 }

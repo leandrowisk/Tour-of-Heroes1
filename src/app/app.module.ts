@@ -1,5 +1,5 @@
 import { NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -20,6 +20,7 @@ import { HeroNewComponent } from './hero-new/hero-new.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import{ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatIconModule} from '@angular/material/icon';
     HeroSearchComponent,
     HeroEditComponent,
     HeroNewComponent,
-    HeroFormComponent
+    HeroFormComponent,
+  
     
   ],
 
@@ -43,10 +45,10 @@ import {MatIconModule} from '@angular/material/icon';
     ///HttpClientInMemoryWebApiModule.forRoot(
       ///InMemoryDataService, { dataEncapsulation: false }
    BrowserAnimationsModule,MatInputModule,MatSelectModule,
-    MatCardModule,MatButtonModule,MatIconModule
+    MatCardModule,MatButtonModule,MatIconModule,ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
