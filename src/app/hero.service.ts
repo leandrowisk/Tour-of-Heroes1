@@ -35,15 +35,16 @@ export class HeroService {
     };
   }
 
-  getHeroes(): Observable<HeroGetResponse>{
-
-    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes`)
+  getHeroes(cursor?: string): Observable<HeroGetResponse>{
+    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes?cursor=${cursor || 'eyJsaW1pdCI6IDIwLCAib2Zmc2V0IjogMjAsICJsYXN0X2RvY19rZXkiOiAiSGVyby9LVDFHaFJ4NHhvejRQblk0YVEwUiJ9'}`)
     .pipe(
       tap(_ => this.log('fetched heroes')),
-      catchError(this.handleError<HeroGetResponse>('getHeroes', {heroes: [], cursor: ''}))
+      catchError(this.handleError<HeroGetResponse>('getHeroes', {heroes: [], cursor: undefined}))
+      
     );
-  }
 
+      
+}
   getAleatoryHeroes(): Observable<HeroGetResponse>{
 
      return this.http.get<HeroGetResponse>(`${this.heroesUrl}/top-heroes`)
