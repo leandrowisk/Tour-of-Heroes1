@@ -47,7 +47,7 @@ export class HeroFormComponent implements OnInit{
          name: [this.hero.name,[ Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
          id: [this.hero.id],
          description: [this.hero.description, Validators.minLength(3)],
-         imageUrl: [this.hero.imageUrl, Validators.required],
+         imageUrl: [this.hero.imageUrl, [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
          universe: [this.hero.universe]
       
   });

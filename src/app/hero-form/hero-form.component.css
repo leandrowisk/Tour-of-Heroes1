@@ -18,13 +18,11 @@ button{
     border-style: none;
     border-bottom-style: solid;
     margin:5px;
+    background-color: purple;
 }
 
 
-button:hover{
-   background-color: purple;
-  
-}
+
 
 h2{
     text-align: center;

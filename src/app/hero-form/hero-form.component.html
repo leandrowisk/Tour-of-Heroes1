@@ -8,9 +8,9 @@
       <h2>{{hero.name}} - ID: {{hero.id}}</h2>
       
       
-      <mat-form-field appearance="fill" class="example-full-width" >
+      <mat-form-field  class="example-full-width" >
       <mat-label>Hero Name: </mat-label>
-      <mat-input matInput placeholder="Hero name"  formControlName="name"></mat-input>
+      <input matInput type="text" formControlName="name">
       <mat-error *ngIf="formulario.get('name').hasError('required')">O nome é obrigatório</mat-error>
       <mat-error *ngIf="formulario.get('name').hasError('min')">É necessário ter pelo menos 3 caracteres</mat-error>
       <mat-error *ngIf="formulario.get('name').hasError('max')">Ultrapassou o limite máximo de caracteres</mat-error>
@@ -21,9 +21,9 @@
           
       <br>
   
-      <mat-form-field appearance="fill" class="example-full-width" >
+      <mat-form-field  class="example-full-width" >
         <mat-label>Hero Description: </mat-label>
-        <mat-input matInput placeholder="Hero description"  formControlName="description"></mat-input>
+        <input matInput type="text" formControlName="description">
         <mat-error *ngIf="formulario.get('description').hasError('min')">É necessário ter pelo menos 3 caracteres</mat-error>
       </mat-form-field>
     
@@ -31,9 +31,9 @@
         
       <br>
 
-      <mat-form-field appearance="fill" class="example-full-width" >
+      <mat-form-field class="example-full-width" >
         <mat-label>Hero imageUrl: </mat-label>
-        <mat-input matInput placeholder="Hero image" formControlName="imageUrl"> </mat-input>
+        <input matInput type="text" formControlName="imageUrl">
         <mat-error *ngIf="formulario.get('imageUrl').hasError('required')">O campo é obrigatório</mat-error>
         <mat-error *ngIf="formulario.get('imageUrl').hasError('pattern')">Insira uma url válida</mat-error>
       </mat-form-field>
@@ -42,7 +42,7 @@
 
      
   
-     <mat-form-field appearance="fill"  class="example-full-width" >
+     <mat-form-field  class="example-full-width" >
       <mat-label>Universe</mat-label>
       <mat-select formControlName="universe">
       <mat-option *ngFor="let universe of heroUniverses"  [value]= "universe" placeholder="Universe" >
@@ -53,7 +53,7 @@
        
       <div class="button-container">
         <button mat-raised-button type="button" (click)="onGoBack()">go back</button>
-        <button mat-raised-button type="submit" color="primary" >save</button>
+        <button mat-raised-button type="submit" [disabled]="!formulario.valid">save</button>
       </div>
  
     </mat-card>
