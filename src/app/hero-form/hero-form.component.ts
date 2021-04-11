@@ -1,9 +1,8 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Component, EventEmitter, Input, Output,OnInit} from '@angular/core';
 import { Hero, HeroUniverse } from '../hero';
 import { HeroService } from '../hero.service';
-
-
+import { Expression } from '@angular/compiler';
 
 
 
@@ -12,7 +11,8 @@ import { HeroService } from '../hero.service';
   templateUrl: './hero-form.component.html',
   styleUrls: ['./hero-form.component.css']
 })
-export class HeroFormComponent {
+
+export class HeroFormComponent implements OnInit{
 
   @Input() hero: Hero;
   @Output() heroSaved: EventEmitter<void> = new EventEmitter<void>();
@@ -25,28 +25,31 @@ export class HeroFormComponent {
   
 
   constructor(private heroService: HeroService,private formBuilder: FormBuilder) { }
+
   onGoBack(): void{
     this.goBack.emit();
   }
 
   save(): void {
-
-    if (this.hero.id){
-    this.heroService.updateHero(this.hero)
-    .subscribe(() => this.heroSaved.emit());
-  }else{
-    this.heroService.addHero(this.hero)
-    .subscribe(() => this.heroSaved.emit());
-  }
+    let hero: Hero = this.formulario.value;
+    if (hero.id) {
+      this.heroService.updateHero(hero)
+      .subscribe(() => this.heroSaved.emit());
+    } else {
+      this.heroService.addHero(hero)
+      .subscribe(() => this.heroSaved.emit());
+    }
 }
 
-    OnInit(){
+    ngOnInit(){
 
-        this.formulario = this.formBuilder.group({
-        name: [this.hero.name, Validators.required, Validators.nullValidator],
-        description: [this.hero.description],
-        imageUrl: [this.hero.imageUrl,Validators],
-        universe: [this.hero.universe]
+         this.formulario = this.formBuilder.group({
+         name: [this.hero.name,[ Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+         id: [this.hero.id],
+         description: [this.hero.description, Validators.minLength(3)],
+         imageUrl: [this.hero.imageUrl, Validators.required],
+         universe: [this.hero.universe]
+      
   });
     }
 }

@@ -1,5 +1,6 @@
+import { Expression } from '@angular/compiler';
 import { NgModule} from '@angular/core';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule, FormBuilder, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -20,7 +21,9 @@ import { HeroNewComponent } from './hero-new/hero-new.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import{ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+import {InfiniteScrollModule}  from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import{ReactiveFormsModule} from '@angular/forms';
     HeroEditComponent,
     HeroNewComponent,
     HeroFormComponent,
+
   
     
   ],
@@ -43,9 +47,10 @@ import{ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     FormsModule, HttpClientModule,
     ///HttpClientInMemoryWebApiModule.forRoot(
-      ///InMemoryDataService, { dataEncapsulation: false }
+    ///InMemoryDataService, { dataEncapsulation: false }
    BrowserAnimationsModule,MatInputModule,MatSelectModule,
-    MatCardModule,MatButtonModule,MatIconModule,ReactiveFormsModule
+    MatCardModule,MatButtonModule,MatIconModule,ReactiveFormsModule,
+    InfiniteScrollModule
     
   ],
   providers: [FormBuilder],
