@@ -6,27 +6,26 @@
 <li *ngFor="let hero of heroes">
 
 <a routerLink="/detail/{{hero.id}}">
-<img src='{{ hero.imageUrl }}' alt="heroes image" width="60px" height="60px">
-<span class="badge"> {{hero.name}} 
-    <br><br>
-    {{hero.description}}
-</span>
 
-<button class="delete" title="delete hero"
-(click)="delete(hero)">x</button>
+<img src='{{ hero.imageUrl }}' alt="heroes image" >
+
+<span class="badge"> {{hero.name}} </span>
+
+    <br>
+    
+<button class="delete" title="delete hero" (click)="delete(hero)">x</button>
 </a>
-
-
 
 </li>
 
 </ul>
 
+
+    
 </div>
 
-<button class="add" mat-fab color='acent' arial-label="Add new hero" color=accent [routerLink]="['/new']">
-<mat-icon>add</mat-icon>
-</button>
 
-   
+<button class="add" mat-fab color='acent' arial-label="Add new hero" color=accent [routerLink]="['/new']">
+    <mat-icon>+</mat-icon>
+    </button>
   
