@@ -36,7 +36,7 @@ export class HeroService {
   }
 
   getHeroes(cursor?: string): Observable<HeroGetResponse>{
-    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes?cursor=${''}`)
+    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes?cursor=${cursor || ''}`)
     .pipe(
       tap(_ => this.log('fetched heroes')),
       catchError(this.handleError<HeroGetResponse>('getHeroes', {heroes: [], cursor: undefined}))
